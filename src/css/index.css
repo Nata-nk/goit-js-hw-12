@@ -38,6 +38,10 @@ img {
   display: block;
 }
 
+.is-hidden {
+  display: none;
+}
+
 /* ================ /COMMON STYLES ================ */
 
 /* ================ GALLERY ================ */
@@ -77,11 +81,15 @@ body {
   width: 95px;
   height: 40px;
   border: 0px;
-  background: #4e75ff;
+  background: #282b36;
+}
+
+.btn {
+  width: 125px;
 }
 
 .button:hover {
-  background: #6c8cff;
+  background: #878ca0;
 }
 
 .gallery {
@@ -133,6 +141,13 @@ body {
 /* ================ /GALLERY ================ */
 
 /* ================ LOADER ================ */
+
+.box {
+  display: grid;
+  position: relative;
+  place-items: center;
+}
+
 .loader,
 .loader:before,
 .loader:after {
@@ -145,10 +160,10 @@ body {
 .loader {
   color: #fff;
   font-size: 7px;
-  position: relative;
   text-indent: -9999em;
   transform: translateZ(0);
   animation-delay: -0.16s;
+  top: 0px;
 }
 .loader:before,
 .loader:after {
@@ -176,3 +191,46 @@ body {
 }
 
 /* ================ /LOADER ================ */
+
+.loaders,
+.loaders:before,
+.loaders:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
+}
+.loaders {
+  color: rgb(255, 255, 255);
+  font-size: 7px;
+  text-indent: -9999em;
+  transform: translateZ(0);
+  animation-delay: -0.16s;
+  top: 640px;
+  position: fixed;
+}
+.loaders:before,
+.loaders:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loaders:before {
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+.loaders:after {
+  left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
